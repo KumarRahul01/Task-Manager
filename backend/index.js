@@ -14,8 +14,16 @@ import taskRoutes from "./routes/task.routes.js";
 
 const app = express();
 
-// CORS Configuration
-app.use(cors())
+// Configure CORS options
+const corsOptions = {
+  origin: true, // or specify domains like ['http://example.com', 'http://localhost:3000']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Custom-Header'],
+  exposedHeaders: ['Content-Length', 'X-Custom-Header'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 // middlewares
 app.use(express.json());
