@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -27,8 +26,9 @@ const Signup = () => {
   const signupUser = async () => {
     try {
       const res = await axios.post(`${baseUrl}/user/signup`, formData);
+
+      console.log("user signedUp successfully", res?.data);
       localStorage.setItem("uid_token", res.data.token);
-      setLoading(false);
       toast.success("Loggedin Successfully!");
       navigate("/dashboard");
     } catch (error) {
@@ -40,7 +40,6 @@ const Signup = () => {
     e.preventDefault();
 
     if (formData.confirm_password === formData.password) {
-      setLoading(true);
       signupUser();
     }
 
@@ -89,11 +88,7 @@ const Signup = () => {
             onChange={(e) => handleChange(e)}
           />
         </label>
-        {!loading ? (
-          <button>Create Account</button>
-        ) : (
-          <div className="spinner"></div>
-        )}
+        <button>Create Account</button>
       </form>
     </>
   );
