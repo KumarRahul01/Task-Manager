@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const [loginFromData, setLoginFormData] = useState({
     email: "",
     password: "",
@@ -30,6 +31,7 @@ const Login = () => {
       console.log("user loggedin", res.data);
       localStorage.setItem("uid_token", res.data.token);
 
+      setLoading(false);
       toast.success("User Loggedin!");
       navigate("/dashboard");
     } catch (error) {
@@ -40,6 +42,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
+    setLoading(true);
     loginUser();
 
     setLoginFormData({
@@ -71,7 +74,7 @@ const Login = () => {
             onChange={(e) => handleDataChange(e)}
           />
         </label>
-        <button>Login</button>
+        {!loading ? <button>Login</button> : <div className="spinner"></div>}
       </form>
     </>
   );
