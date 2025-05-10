@@ -16,7 +16,7 @@ const app = express();
 
 // Configure CORS options
 const corsOptions = {
-  origin: true, // or specify domains like ['http://example.com', 'http://localhost:3000']
+  origin: ["https://task-manager-black-three.vercel.app/", "https://localhost:5173"],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Custom-Header'],
   exposedHeaders: ['Content-Length', 'X-Custom-Header'],
