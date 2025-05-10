@@ -4,14 +4,6 @@ A full-stack **Task Management Application** built using the **MERN stack (Mongo
 
 ---
 
-## 📁 Folder Structure
-Task-Manager
-  ├── frontend/ # Vite + React.js client code
-  ├── backend/ # Express.js server and API routes
-  ├── readme.md
-
----
-
 ## 🔧 Tech Stack
 
 ### 🔹 Frontend (React + Vite)
@@ -19,7 +11,6 @@ Task-Manager
 - Vite
 - Axios
 - React Router DOM
-- Tailwind CSS (or other styling framework if used)
 
 ### 🔹 Backend (Express + Node.js)
 - Node.js
@@ -94,4 +85,4 @@ npm run dev
 ```
 
 🧑‍💻 Author
-Rahul Kumar
+[Rahul Kumar](https://github.com/KumarRahul01/)
